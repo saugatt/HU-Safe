@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js" > </script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>HU SAFE</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="sidePanel pushCar" ng-controller="myCtrl">
+       <h2> Tracked Students </h2>
+          Name: <br><input type="text" ng-model="searchname"></input>
+          <div class="footermid2">
+    </div>
+      
+    <ul id="stdlist">
+        <li ng-mouseover="true" ng-repeat="x in student | filter: searchname"> 
+         {{ x.name }} <!-- + x.classification + ' ' + x.phone}} -->
+        </li>
+
+    </ul>
+    </br>
+  </br>
+  <div ng-show="true">
+    {{x.classification}}
+  </div>
+      </div>
+    <script src = "map.js"></script>s
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3us6wBufiSncXS0TrKVQZfsYaZVgkYQM&callback=initMap">
+    </script>
+  </body>
+</html>
