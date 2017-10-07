@@ -1,0 +1,37 @@
+<html>
+<head>
+
+
+</head>
+</script>
+<script type="text/javascript" scrc="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+gitgi
+
+<script type="text/javascript">
+	var config = {
+    apiKey: "AIzaSyDKgu6IMSSPjMDymFh_ivaS-rDrWljjluQ",
+    authDomain: "hu-safe.firebaseapp.com",
+    databaseURL: "https://hu-safe.firebaseio.com",
+    projectId: "hu-safe",
+    storageBucket: "hu-safe.appspot.com",
+    messagingSenderId: "633905449890"
+  };
+  firebase.initializeApp(config);
+
+$(document).ready(function) {
+  var rootRef = firebase.database().ref().child("Users");
+
+  rootRef.on("child_added", snap => {
+    var name = snap.child("first_name").val();
+    console.log(name)
+  });
+
+
+}
+
+<script type="text/javascript" scr="app.js"></script>
+
+<body>
+
+</body>
+</html>
