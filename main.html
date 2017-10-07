@@ -21,24 +21,6 @@
   </head>
   <body>
     <div id="map"></div>
-    <div class="sidePanel pushCar" ng-controller="myCtrl">
-       <h2> Tracked Students </h2>
-          Name: <br><input type="text" ng-model="searchname"></input>
-          <div class="footermid2">
-    </div>
-      
-    <ul id="stdlist">
-        <li ng-mouseover="true" ng-repeat="x in student | filter: searchname"> 
-         {{ x.name }} <!-- + x.classification + ' ' + x.phone}} -->
-        </li>
-
-    </ul>
-    </br>
-  </br>
-  <div ng-show="true">
-    {{x.classification}}
-  </div>
-      </div>
     <script src = "map.js"></script>s
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3us6wBufiSncXS0TrKVQZfsYaZVgkYQM&callback=initMap">
