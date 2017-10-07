@@ -1,0 +1,6 @@
+framework module Pods_HUSafety {
+  umbrella header "Pods-HUSafety-umbrella.h"
+
+  export *
+  module * { export * }
+}
