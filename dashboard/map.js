@@ -1,4 +1,52 @@
-  function initMap() {
+  
+var config = {
+    apiKey: "AIzaSyDKgu6IMSSPjMDymFh_ivaS-rDrWljjluQ",
+    authDomain: "hu-safe.firebaseapp.com",
+    databaseURL: "https://hu-safe.firebaseio.com",
+    projectId: "hu-safe",
+    storageBucket: "hu-safe.appspot.com",
+    messagingSenderId: "633905449890"
+  };
+  firebase.initializeApp(config);
+
+ var icons = {
+            student:{
+                icon:'rsz_student.png'
+            },
+            guard:{
+                icon:'rsz_guard.png',
+            }
+        }  
+
+var rootRef = firebase.database().ref().child("Users");
+
+  rootRef.on("child_added", snap => {
+    var name = snap.child("first_name").val();
+    var status = snap.child("status").val();
+    var longi = snap.child("longi").val();
+    var lati = snap.child("lati").val();
+
+    new google.maps.Marker({
+          position: {lat: lati, lng: -77.02},
+          map: map, 
+          icon: icons.student.icon,
+          label:{text: name, color: "Blue"}
+        });
+
+
+  });
+
+
+
+
+  new google.maps.Marker({
+          position: {lat: 38.9225, lng: -77.02},
+          map: map, 
+          icon: icons.student.icon,
+          label:{text: "Anish", color: "Blue"}
+        });
+
+function initMap() {
 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 17,
@@ -18,7 +66,7 @@
         }  
 
         var anish = new google.maps.Marker({
-          position: {lat: 38.9225, lng: -77.02},
+          position: {lat: 38.922038, lng: -77.021542},
           map: map, 
           icon: icons.student.icon,
           label:{text: "Anish", color: "Blue"}

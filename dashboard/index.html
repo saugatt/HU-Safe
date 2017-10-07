@@ -15,8 +15,46 @@
 
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+
+<script type="text/javascript">
+    var dict = {
+        track: "<i class='fa fa-check' aria-hidden='true'>",
+        alert: "<i class='fa fa-exclamation-triangle' aria-hidden='true'>"
+
+    };
+    var config = {
+    apiKey: "AIzaSyDKgu6IMSSPjMDymFh_ivaS-rDrWljjluQ",
+    authDomain: "hu-safe.firebaseapp.com",
+    databaseURL: "https://hu-safe.firebaseio.com",
+    projectId: "hu-safe",
+    storageBucket: "hu-safe.appspot.com",
+    messagingSenderId: "633905449890"
+  };
+  firebase.initializeApp(config);
+
+  var rootRef = firebase.database().ref().child("Users");
+
+  rootRef.on("child_added", snap => {
+    var name = snap.child("first_name").val();
+    var status = snap.child("status").val();
+    console.log(name)
+      $(".sidebar-nav").append("<li class='sidebar-brand'> <a href=>" + name + " " + dict[status] + " </a> <li>" )
+
+  });
+
+  setTimeout(function(){
+   window.location.reload(1);
+}, 5000);
+
+
+
+</script>
 
 <body>
 
@@ -25,12 +63,39 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
+                <!--
                 <li class="sidebar-brand">
                     <a href="#">
                         Student
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     </a>
                 </li>
-                
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Saugat
+                        <i class="fa fa-check" aria-hidden="true"></i>
+
+                    </a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Anish
+                        <i class="fa fa-check" aria-hidden="true"></i>
+
+                    </a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Bishwash
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Devendra
+                    </a>
+                </li>  
+                -->              
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -38,8 +103,9 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <center><h1>HU Safe</h1> </center>
-                <p> Helping Keep students safer </p>
+                <center><h1>HU Safe</h1>
+                <p> Howard Campus Police Interface </p>
+                 </center>
                 <iframe src="main.html" style="height:800px; width: 100%"></iframe>
                 
             </div>

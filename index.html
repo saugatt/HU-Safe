@@ -3,9 +3,8 @@
 
 
 </head>
-</script>
-<script type="text/javascript" scrc="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-gitgi
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 
 <script type="text/javascript">
 	var config = {
@@ -18,20 +17,27 @@ gitgi
   };
   firebase.initializeApp(config);
 
-$(document).ready(function) {
   var rootRef = firebase.database().ref().child("Users");
 
   rootRef.on("child_added", snap => {
     var name = snap.child("first_name").val();
+    var status = snap.child("status").val();
     console.log(name)
+      $(".test").append("<li>" + name + " " + status + "<li>" )
+
+      $(".test").append("<li>" + status + "<li>" )
+
   });
 
 
-}
+
+</script>
 
 <script type="text/javascript" scr="app.js"></script>
 
 <body>
+	<ul class="test">
+	</ul>
 
 </body>
 </html>
