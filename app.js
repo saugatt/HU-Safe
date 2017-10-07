@@ -1,5 +1,5 @@
 
-  //
+  //code to connect Firebase database to web 
   var config = {
     apiKey: "AIzaSyDKgu6IMSSPjMDymFh_ivaS-rDrWljjluQ",
     authDomain: "hu-safe.firebaseapp.com",
